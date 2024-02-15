@@ -26,7 +26,7 @@
                 <div class="movie-title">Trunk Locked In</div>
                 <div class="movie-description">Description for Movie 1.</div>
                 <div class="movie-price" data-price-ether="0.01">0.01 Ether</div>
-                <button class="buy-button" data-movie-title="1">Buy Now</button>
+                <button onclick="connectMetamask('Trunk Locked In', 0.01)" class="buy-button" data-movie-title="1">Buy Now</button>
             </div>
         </div>
 
@@ -37,7 +37,7 @@
                 <div class="movie-title">The Beekeeper</div>
                 <div class="movie-description">Description for Movie 2.</div>
                 <div class="movie-price" data-price-ether="0.02">0.02 Ether</div>
-                <button class="buy-button" data-movie-title="2">Buy Now</button>
+                <button onclick="connectMetamask('The Beekeeper', 0.02)" class="buy-button" data-movie-title="2">Buy Now</button>
             </div>
         </div>
 
@@ -48,7 +48,7 @@
                 <div class="movie-title">Fast and Furious 9</div>
                 <div class="movie-description">Description for Movie 3.</div>
                 <div class="movie-price" data-price-ether="0.03">0.03 Ether</div>
-                <button class="buy-button" data-movie-title="3">Buy Now</button>
+                <button onclick="connectMetamask('Fast and Furious 9', 0.03)" class="buy-button" data-movie-title="3">Buy Now</button>
             </div>
         </div>
 
@@ -59,7 +59,7 @@
                 <div class="movie-title">Ant-Man and the Wasp Quantumania</div>
                 <div class="movie-description">Description for Movie 4.</div>
                 <div class="movie-price" data-price-ether="0.04">0.04 Ether</div>
-                <button class="buy-button" data-movie-title="4">Buy Now</button>
+                <button onclick="connectMetamask('Ant-Man and the Wasp Quantumania', 0.04)" class="buy-button" data-movie-title="4">Buy Now</button>
             </div>
         </div>
 
@@ -70,7 +70,7 @@
                 <div class="movie-title">The Tiger’s Apprentice</div>
                 <div class="movie-description">Description for Movie 5.</div>
                 <div class="movie-price" data-price-ether="0.05">0.05 Ether</div>
-                <button class="buy-button" data-movie-title="5">Buy Now</button>
+                <button onclick="connectMetamask('The Tiger’s Apprentice', 0.05)" class="buy-button" data-movie-title="5">Buy Now</button>
             </div>
         </div>
 
@@ -81,7 +81,7 @@
                 <div class="movie-title">One Piece</div>
                 <div class="movie-description">Description for Movie 6.</div>
                 <div class="movie-price" data-price-ether="0.06">0.06 Ether</div>
-                <button class="buy-button" data-movie-title="6">Buy Now</button>
+                <button onclick="connectMetamask('One Piece', 0.06)" class="buy-button" data-movie-title="6">Buy Now</button>
             </div>
         </div>
 
@@ -92,7 +92,7 @@
                 <div class="movie-title">Movie 7</div>
                 <div class="movie-description">Description for Movie 7.</div>
                 <div class="movie-price" data-price-ether="0.07">0.07 Ether</div>
-                <button class="buy-button" data-movie-title="7">Buy Now</button>
+                <button onclick="connectMetamask('Movie 7', 0.07)" class="buy-button" data-movie-title="7">Buy Now</button>
             </div>
         </div>
 
@@ -103,7 +103,7 @@
                 <div class="movie-title">Movie 8</div>
                 <div class="movie-description">Description for Movie 8.</div>
                 <div class="movie-price" data-price-ether="0.08">0.08 Ether</div>
-                <button class="buy-button" data-movie-title="8">Buy Now</button>
+                <button onclick="connectMetamask('Movie 8', 0.08)" class="buy-button" data-movie-title="8">Buy Now</button>
             </div>
         </div>
 
@@ -114,7 +114,8 @@
                 <div class="movie-title">Movie 9</div>
                 <div class="movie-description">Description for Movie 9.</div>
                 <div class="movie-price" data-price-ether="0.09">0.09 Ether</div>
-                <button class="buy-button" data-movie-title="9">Buy Now</button>
+                <button onclick="connectMetamask('Movie 9', 0.09)" class="buy-button" data-movie-title="9">Buy Now</button>
+
             </div>
         </div>
 
@@ -125,168 +126,81 @@
                 <div class="movie-title">Movie 10</div>
                 <div class="movie-description">Description for Movie 10.</div>
                 <div class="movie-price" data-price-ether="0.1">0.1 Ether</div>
-                <button class="buy-button" data-movie-title="10">Buy Now</button>
+                <button onclick="connectMetamask('Movie 10', 0.1)" class="buy-button" data-movie-title="10">Buy Now</button>
             </div>
         </div>
         <div class="ownership-details">
             <h2>Ownership Details</h2>
-            <p id="ownership-result"></p>
-        </div>       
+            <table id="ownershipTable">
+                <thead>
+                    <tr>
+                        <th>Time</th>
+                        <th>Movie Title</th>
+                        <th>Owner</th>
+                    </tr>
+                </thead>
+                <tbody id="ownershipBody">
+                    <!-- ข้อมูล Ownership จะถูกเพิ่มที่นี่ -->
+                </tbody>
+            </table>
+        </div>
+        
+
+             
 
     </div>
 
     <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js">
     </script>
-    <script>
-        let web3;
+   
+   <script>
+    let account;
+    let ownershipData = []; // เก็บข้อมูล Ownership
 
-        async function loadWeb3() {
-            if (window.ethereum) {
-                web3 = new Web3(window.ethereum);
-                
-                await ethereum.request({ method: 'eth_requestAccounts' });
-            }
-        }
+    const connectMetamask = async (movieTitle, moviePrice) => {
+    if (window.ethereum !== undefined) {
+        try {
+            const accounts = await ethereum.request({ method: "eth_requestAccounts" });
+            account = accounts[0];
 
-        async function loadContract() {
-            const abi = [
-            [
-	{
-		"anonymous": false,
-		"inputs": [
-			{
-				"indexed": false,
-				"internalType": "address",
-				"name": "buyer",
-				"type": "address"
-			},
-			{
-				"indexed": false,
-				"internalType": "string",
-				"name": "movieTitle",
-				"type": "string"
-			},
-			{
-				"indexed": false,
-				"internalType": "bytes32",
-				"name": "hash",
-				"type": "bytes32"
-			}
-		],
-		"name": "MoviePurchased",
-		"type": "event"
-	},
-	{
-		"anonymous": false,
-		"inputs": [
-			{
-				"indexed": false,
-				"internalType": "address",
-				"name": "buyer",
-				"type": "address"
-			},
-			{
-				"indexed": false,
-				"internalType": "string",
-				"name": "movieTitle",
-				"type": "string"
-			},
-			{
-				"indexed": false,
-				"internalType": "string",
-				"name": "reason",
-				"type": "string"
-			}
-		],
-		"name": "PurchaseError",
-		"type": "event"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "string",
-				"name": "movieTitle",
-				"type": "string"
-			}
-		],
-		"name": "checkMoviePurchase",
-		"outputs": [
-			{
-				"internalType": "bool",
-				"name": "",
-				"type": "bool"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "string",
-				"name": "movieTitle",
-				"type": "string"
-			}
-		],
-		"name": "purchaseMovie",
-		"outputs": [],
-		"stateMutability": "payable",
-		"type": "function"
-	}
-]
-            ]; 
-            const contractAddress = '0xa3036987e013a3697fcc83565dd643753428b32418b9971927fa7926cb0b6a4a';
-            return new web3.eth.Contract(abi, contractAddress);
-        }
-
-        async function load() {
-            await loadWeb3();
-            web3.contract = await loadContract();
-            updateStatus('Ready!');
-        }
-
-        function updateStatus(status) {
-            console.log(status);
-        }
-
-        $(document).ready(async function () {
-            await load();
-
-            // Add a script to handle the Buy Now button click event
-            const buyButtons = $('.buy-button');
-
-            buyButtons.click(async function () {
-                try {
-                    await window.ethereum.enable();
-                    const accounts = await web3.eth.getAccounts();
-                    const buyerAddress = accounts[0];
-
-                    // Get the movie ID from the data attribute
-                    const movieTitle = $(this).parent().find('.movie-title').text();
-
-                    // Get the Ether price from the data attribute
-                    const etherPrice = $(this).parent().find('.movie-price').attr('data-price-ether');
-
-                    // Convert Ether price to Wei
-                    const weiPrice = web3.utils.toWei(etherPrice, 'ether');
-
-                    const result = await web3.contract.methods.purchaseMovie(movieTitle).send({
-                        from: buyerAddress,
-                        value: weiPrice,
-                    });
-
-                    console.log(result);
-
-                    // Update UI or show ownership details
-                    const ownershipDetails = await web3.contract.methods.checkMoviePurchase(movieTitle).call();
-                    console.log('Ownership Details:', ownershipDetails);
-                    $('#ownership-result').text(`You are the owner: ${ownershipDetails}`);
-                } catch (error) {
-                    console.error(error);
-                }
+            ownershipData.push({
+                time: new Date().toLocaleString(),
+                movieTitle: movieTitle,
+                owner: account
             });
-        });
-    </script>
 
+            // แสดงข้อมูล Ownership ในตาราง
+            displayOwnershipTable();
+        } catch (error) {
+            console.error("Error connecting to Metamask:", error.message);
+        }
+    }
+}
+
+
+
+    const displayOwnershipTable = () => {
+        const ownershipTableBody = document.getElementById("ownershipBody");
+
+        // ลบข้อมูลเก่าในตาราง
+        while (ownershipTableBody.firstChild) {
+            ownershipTableBody.removeChild(ownershipTableBody.firstChild);
+        }
+
+        // เพิ่มข้อมูลใหม่ลงในตาราง
+        ownershipData.forEach((ownership) => {
+            const row = ownershipTableBody.insertRow();
+            const timeCell = row.insertCell(0);
+            const movieTitleCell = row.insertCell(1);
+            const ownerCell = row.insertCell(2);
+
+            timeCell.textContent = ownership.time;
+            movieTitleCell.textContent = ownership.movieTitle;
+            ownerCell.textContent = ownership.owner;
+        });
+    }
+
+    document.getElementById("buyButton").addEventListener("click", connectMetamask);
+</script>
 </body>
 </html>
