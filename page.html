@@ -89,10 +89,10 @@
         <div class="movie-card">
             <img src="img/7.jpg" alt="Movie 7">
             <div class="movie-details">
-                <div class="movie-title">Movie 7</div>
+                <div class="movie-title">barbie mariposa</div>
                 <div class="movie-description">Description for Movie 7.</div>
                 <div class="movie-price" data-price-ether="0.07">0.07 Ether</div>
-                <button onclick="connectMetamask('Movie 7', 0.07)" class="buy-button" data-movie-title="7">Buy Now</button>
+                <button onclick="connectMetamask('barbie mariposa', 0.07)" class="buy-button" data-movie-title="7">Buy Now</button>
             </div>
         </div>
 
@@ -100,10 +100,10 @@
         <div class="movie-card">
             <img src="img/8.jpg" alt="Movie 8">
             <div class="movie-details">
-                <div class="movie-title">Movie 8</div>
+                <div class="movie-title">Haibara_JAMNIME</div>
                 <div class="movie-description">Description for Movie 8.</div>
                 <div class="movie-price" data-price-ether="0.08">0.08 Ether</div>
-                <button onclick="connectMetamask('Movie 8', 0.08)" class="buy-button" data-movie-title="8">Buy Now</button>
+                <button onclick="connectMetamask('Haibara_JAMNIME', 0.08)" class="buy-button" data-movie-title="8">Buy Now</button>
             </div>
         </div>
 
@@ -111,10 +111,10 @@
         <div class="movie-card">
             <img src="img/9.jpg" alt="Movie 9">
             <div class="movie-details">
-                <div class="movie-title">Movie 9</div>
+                <div class="movie-title">Avatar: The Way of Water</div>
                 <div class="movie-description">Description for Movie 9.</div>
                 <div class="movie-price" data-price-ether="0.09">0.09 Ether</div>
-                <button onclick="connectMetamask('Movie 9', 0.09)" class="buy-button" data-movie-title="9">Buy Now</button>
+                <button onclick="connectMetamask('Avatar: The Way of Water', 0.09)" class="buy-button" data-movie-title="9">Buy Now</button>
 
             </div>
         </div>
@@ -123,10 +123,10 @@
         <div class="movie-card">
             <img src="img/10.jpg" alt="Movie 10">
             <div class="movie-details">
-                <div class="movie-title">Movie 10</div>
+                <div class="movie-title">Thor love and thunder </div>
                 <div class="movie-description">Description for Movie 10.</div>
                 <div class="movie-price" data-price-ether="0.1">0.1 Ether</div>
-                <button onclick="connectMetamask('Movie 10', 0.1)" class="buy-button" data-movie-title="10">Buy Now</button>
+                <button onclick="connectMetamask('Thor love and thunder ', 0.1)" class="buy-button" data-movie-title="10">Buy Now</button>
             </div>
         </div>
         <div class="ownership-details">
@@ -176,8 +176,103 @@
         }
     }
 }
+    const connectContract = async() => {
+    const ABI = [
+        [
+        {
+            "anonymous": false,
+            "inputs": [
+                {
+                    "indexed": false,
+                    "internalType": "address",
+                    "name": "buyer",
+                    "type": "address"
+                },
+                {
+                    "indexed": false,
+                    "internalType": "string",
+                    "name": "movieTitle",
+                    "type": "string"
+                },
+                {
+                    "indexed": false,
+                    "internalType": "bytes32",
+                    "name": "hash",
+                    "type": "bytes32"
+                }
+            ],
+            "name": "MoviePurchased",
+            "type": "event"
+        },
+        {
+            "anonymous": false,
+            "inputs": [
+                {
+                    "indexed": false,
+                    "internalType": "address",
+                    "name": "buyer",
+                    "type": "address"
+                },
+                {
+                    "indexed": false,
+                    "internalType": "string",
+                    "name": "movieTitle",
+                    "type": "string"
+                },
+                {
+                    "indexed": false,
+                    "internalType": "string",
+                    "name": "reason",
+                    "type": "string"
+                }
+            ],
+            "name": "PurchaseError",
+            "type": "event"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "string",
+                    "name": "movieTitle",
+                    "type": "string"
+                }
+            ],
+            "name": "checkMoviePurchase",
+            "outputs": [
+                {
+                    "internalType": "bool",
+                    "name": "",
+                    "type": "bool"
+                }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "string",
+                    "name": "movieTitle",
+                    "type": "string"
+                }
+            ],
+            "name": "purchaseMovie",
+            "outputs": [],
+            "stateMutability": "payable",
+            "type": "function"
+        }
+    ]
+    ];
+    const Address = "";
+    window.web3 =  await new Web3(window.ethereum);
+    window.contract = await new window.web3.eth.Contract(ABI,Address);
+    document.getElementsById("contractArea").innerHTML = "Connnection Status: Success";
+}
 
-
+    const readWord = async () =>{
+        const data = await window.contract.methods.getFlower().call();
+        document.getElementsById("dataArea").innerHTML = `Word is: ${data}`;
+    }
 
     const displayOwnershipTable = () => {
         const ownershipTableBody = document.getElementById("ownershipBody");
