@@ -11,6 +11,12 @@
 
     <header>
         <h1>Movie List</h1>
+        <i class="gg-film"></i>
+        <a href="#" onclick="scrollToThriller()">Thriller</a>
+        <a href="#" onclick="scrollToAction()">Action</a>
+        <a href="#" onclick="scrollToFantasy()">Fantasy</a>
+        <a href="#" onclick="scrollToAnimation()">Animation</a>
+        <a href="#" onclick="scrollToBarbie()">Barbie</a>
     </header>
     <div class="movie-title">
         <video width="100%" controls>
@@ -18,115 +24,362 @@
             Your browser does not support the video tag.
         </video>
     </div>
+    <!-- Thriller -->
+    <p class="category" id="thriller">Thriller</p>
     <div class="movie-container">
         <!-- Movie 1 -->
         <div class="movie-card">
-            <img src="img/1.jpg" alt="Movie 1">
-            <div class="movie-details">
-                <div class="movie-title">Trunk Locked In</div>
-                <div class="movie-description">Description for Movie 1.</div>
-                <div class="movie-price" data-price-ether="0.00001">0.00001 Ether</div>
-                <button id="buyButton1" onclick="connectMetamask('Trunk Locked In', 0.00001)" class="buy-button" data-movie-title="1">Buy Now</button>
+            <div class="card">
+                <div class="img-content">
+                    <img src="img/1.jpg" alt="Movie 1">
+                </div>
+                <div class="content">
+                    <p class="movie-title">Trunk Locked In</p>
+                    <p class="movie-description">
+                        Malina wakes up disoriented in the trunk of a speeding car and discovers to her horror that she is missing more than her memory.
+                    </p>
+                    <div class="movie-price" data-price-ether="0.000001">0.000001 Ether</div>
+                    <button onclick="connectMetamask('Trunk Locked In', 0.000001)" class="buy-button" data-movie-title="1">Buy Now</button>
+                </div>
             </div>
         </div>
 
         <!-- Movie 2 -->
         <div class="movie-card">
-            <img src="img/2.jpg" alt="Movie 2">
-            <div class="movie-details">
-                <div class="movie-title">The Beekeeper</div>
-                <div class="movie-description">Description for Movie 2.</div>
-                <div class="movie-price" data-price-ether="0.02">0.02 Ether</div>
-                <button onclick="connectMetamask('The Beekeeper', 0.02)" class="buy-button" data-movie-title="2">Buy Now</button>
+            <div class="card">
+                <div class="img-content">
+                    <img src="img/18.jpg" alt="Movie 2">
+                </div>
+                <div class="content">
+                    <p class="movie-title">The Call</p>
+                    <p class="movie-description">
+                        Seo-Yeon lives in the present and Young-Sook lives in the past. One phone call connects the two, and their lives are changed irrevocably.
+                    </p>
+                    <div class="movie-price" data-price-ether="0.000002">0.000002 Ether</div>
+                <button onclick="connectMetamask('The Call', 0.000002)" class="buy-button" data-movie-title="2">Buy Now</button>
+                </div>
             </div>
         </div>
 
         <!-- Movie 3 -->
         <div class="movie-card">
-            <img src="img/3.jpg" alt="Movie 3">
-            <div class="movie-details">
-                <div class="movie-title">Fast and Furious 9</div>
-                <div class="movie-description">Description for Movie 3.</div>
-                <div class="movie-price" data-price-ether="0.03">0.03 Ether</div>
-                <button onclick="connectMetamask('Fast and Furious 9', 0.03)" class="buy-button" data-movie-title="3">Buy Now</button>
+            <div class="card">
+                <div class="img-content">
+                    <img src="img/19.jpg" alt="Movie 3">
+                </div>
+                <div class="content">
+                    <p class="movie-title">Bird Box</p>
+                    <p class="movie-description">
+                        Five years after an ominous unseen presence drives most of society to suicide, a mother and her two children make a desperate bid to reach safety.
+                    </p>
+                    <div class="movie-price" data-price-ether="0.000003">0.000003 Ether</div>
+                    <button onclick="connectMetamask('Bird Box', 0.000001)" class="buy-button" data-movie-title="3">Buy Now</button>
+                </div>
             </div>
         </div>
 
         <!-- Movie 4 -->
         <div class="movie-card">
-            <img src="img/4.jpg" alt="Movie 4">
-            <div class="movie-details">
-                <div class="movie-title">Ant-Man and the Wasp Quantumania</div>
-                <div class="movie-description">Description for Movie 4.</div>
-                <div class="movie-price" data-price-ether="0.04">0.04 Ether</div>
-                <button onclick="connectMetamask('Ant-Man and the Wasp Quantumania', 0.04)" class="buy-button" data-movie-title="4">Buy Now</button>
+            <div class="card">
+                <div class="img-content">
+                    <img src="img/20.jpg" alt="Movie 4">
+                </div>
+                <div class="content">
+                    <p class="movie-title">Speak No Evil</p>
+                    <p class="movie-description">
+                        What was supposed to be an idyllic weekend slowly starts unraveling as the Danes try to stay polite in the face of unpleasantness.
+                    </p>
+                    <div class="movie-price" data-price-ether="0.000004">0.000004 Ether</div>
+                    <button id="buyButton1" onclick="connectMetamask('Speak No Evil', 0.000004)" class="buy-button" data-movie-title="4">Buy Now</button>
+                </div>
             </div>
         </div>
+    </div>
 
+    <!-- Action -->
+    <p class="category" id="action">Action</p>
+    <div class="movie-container">
         <!-- Movie 5 -->
         <div class="movie-card">
-            <img src="img/5.jpg" alt="Movie 5">
-            <div class="movie-details">
-                <div class="movie-title">The Tiger’s Apprentice</div>
-                <div class="movie-description">Description for Movie 5.</div>
-                <div class="movie-price" data-price-ether="0.05">0.05 Ether</div>
-                <button onclick="connectMetamask('The Tiger’s Apprentice', 0.05)" class="buy-button" data-movie-title="5">Buy Now</button>
+            <div class="card">
+                <div class="img-content">
+                    <img src="img/2.jpg" alt="Movie 5">
+                </div>
+                <div class="content">
+                    <p class="movie-title">The Beekeeper</p>
+                    <p class="movie-description">
+                        One man's brutal campaign for vengeance takes on national stakes after he is revealed to be a former operative of a powerful and clandestine.
+                    </p>
+                    <div class="movie-price" data-price-ether="0.000005">0.000005 Ether</div>
+                <button onclick="connectMetamask('The Beekeeper', 0.000005)" class="buy-button" data-movie-title="5">Buy Now</button>
+                </div>
             </div>
         </div>
 
         <!-- Movie 6 -->
         <div class="movie-card">
-            <img src="img/6.jpg" alt="Movie 6">
-            <div class="movie-details">
-                <div class="movie-title">One Piece</div>
-                <div class="movie-description">Description for Movie 6.</div>
-                <div class="movie-price" data-price-ether="0.06">0.06 Ether</div>
-                <button onclick="connectMetamask('One Piece', 0.06)" class="buy-button" data-movie-title="6">Buy Now</button>
+            <div class="card">
+                <div class="img-content">
+                    <img src="img/3.jpg" alt="Movie 6">
+                </div>
+                <div class="content">
+                    <p class="movie-title">Fast and Furious 9</p>
+                    <p class="movie-description">
+                        Dom and his team must fight an international terrorist who is his estranged brother.
+                    </p>
+                    <div class="movie-price" data-price-ether="0.000006">0.000006 Ether</div>
+                <button onclick="connectMetamask('Fast and Furious 9', 0.000006)" class="buy-button" data-movie-title="6">Buy Now</button>
+                </div>
             </div>
         </div>
 
         <!-- Movie 7 -->
         <div class="movie-card">
-            <img src="img/7.jpg" alt="Movie 7">
-            <div class="movie-details">
-                <div class="movie-title">barbie mariposa</div>
-                <div class="movie-description">Description for Movie 7.</div>
-                <div class="movie-price" data-price-ether="0.07">0.07 Ether</div>
-                <button onclick="connectMetamask('barbie mariposa', 0.07)" class="buy-button" data-movie-title="7">Buy Now</button>
+            <div class="card">
+                <div class="img-content">
+                    <img src="img/4.jpg" alt="Movie 7">
+                </div>
+                <div class="content">
+                    <p class="movie-title">Ant-Man and the Wasp Quantumania</p>
+                    <p class="movie-description">
+                        Scott Lang and Hope Van Dyne are dragged into the Quantum.
+                    </p>
+                    <div class="movie-price" data-price-ether="0.000007">0.000007 Ether</div>
+                    <button id="buyButton1" onclick="connectMetamask('Ant-Man and the Wasp Quantumania', 0.000007)" class="buy-button" data-movie-title="7">Buy Now</button>
+                </div>
             </div>
         </div>
 
         <!-- Movie 8 -->
         <div class="movie-card">
-            <img src="img/8.jpg" alt="Movie 8">
-            <div class="movie-details">
-                <div class="movie-title">Haibara_JAMNIME</div>
-                <div class="movie-description">Description for Movie 8.</div>
-                <div class="movie-price" data-price-ether="0.08">0.08 Ether</div>
-                <button onclick="connectMetamask('Haibara_JAMNIME', 0.08)" class="buy-button" data-movie-title="8">Buy Now</button>
+            <div class="card">
+                <div class="img-content">
+                    <img src="img/10.jpg" alt="Movie 8">
+                </div>
+                <div class="content">
+                    <p class="movie-title">Thor love and thunder</p>
+                    <p class="movie-description">
+                        Thor enlists the help of Valkyrie, Korg and ex-girlfriend Jane Foster to fight Gorr.
+                    </p>
+                    <div class="movie-price" data-price-ether="0.000008">0.000008 Ether</div>
+                    <button id="buyButton1" onclick="connectMetamask('Trunk Locked In', 0.000008)" class="buy-button" data-movie-title="8">Buy Now</button>
+                </div>
             </div>
         </div>
+    </div>
 
+    <!-- Fantasy -->
+    <p class="category" id="fantasy">Fantasy</p>
+    <div class="movie-container">
         <!-- Movie 9 -->
         <div class="movie-card">
-            <img src="img/9.jpg" alt="Movie 9">
-            <div class="movie-details">
-                <div class="movie-title">Avatar: The Way of Water</div>
-                <div class="movie-description">Description for Movie 9.</div>
-                <div class="movie-price" data-price-ether="0.09">0.09 Ether</div>
-                <button onclick="connectMetamask('Avatar: The Way of Water', 0.09)" class="buy-button" data-movie-title="9">Buy Now</button>
-
+            <div class="card">
+                <div class="img-content">
+                    <img src="img/9.jpg" alt="Movie 9">
+                </div>
+                <div class="content">
+                    <p class="movie-title">Avatar: The Way of Water</p>
+                    <p class="movie-description">
+                        Sequel of Avatar: The Way of Water (2022).
+                    </p>
+                    <div class="movie-price" data-price-ether="0.000009">0.000009 Ether</div>
+                    <button onclick="connectMetamask('Avatar: The Way of Water', 0.000009)" class="buy-button" data-movie-title="9">Buy Now</button>
+                </div>
             </div>
         </div>
 
         <!-- Movie 10 -->
         <div class="movie-card">
-            <img src="img/10.jpg" alt="Movie 10">
-            <div class="movie-details">
-                <div class="movie-title">Thor love and thunder </div>
-                <div class="movie-description">Description for Movie 10.</div>
-                <div class="movie-price" data-price-ether="0.1">0.1 Ether</div>
-                <button onclick="connectMetamask('Thor love and thunder ', 0.1)" class="buy-button" data-movie-title="10">Buy Now</button>
+            <div class="card">
+                <div class="img-content">
+                    <img src="img/11.jpg" alt="Movie 10">
+                </div>
+                <div class="content">
+                    <p class="movie-title">Wonka</p>
+                    <p class="movie-description">
+                        With dreams of opening a shop in a city renowned for its chocolate, a young and poor Willy Wonka discovers that the industry is run by a cartel.
+                    </p>
+                    <div class="movie-price" data-price-ether="0.000010">0.000010 Ether</div>
+                <button onclick="connectMetamask('Wonka', 0.000010)" class="buy-button" data-movie-title="10">Buy Now</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Movie 11 -->
+        <div class="movie-card">
+            <div class="card">
+                <div class="img-content">
+                    <img src="img/16.jpeg" alt="Movie 11">
+                </div>
+                <div class="content">
+                    <p class="movie-title">Eternals</p>
+                    <p class="movie-description">
+                        The saga of the Eternals, a race of immortal beings who lived on Earth and shaped its history and civilizations.
+                    </p>
+                    <div class="movie-price" data-price-ether="0.000011">0.000011 Ether</div>
+                    <button id="buyButton1" onclick="connectMetamask('Eternals', 0.000011)" class="buy-button" data-movie-title="11">Buy Now</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Movie 12 -->
+        <div class="movie-card">
+            <div class="card">
+                <div class="img-content">
+                    <img src="img/17.jpg" alt="Movie 12">
+                </div>
+                <div class="content">
+                    <p class="movie-title">Harry Potter and the Deathly Hallows - Part 2</p>
+                    <p class="movie-description">
+                        final battle rages on at Hogwarts.
+                    </p>
+                    <div class="movie-price" data-price-ether="0.000012">0.000012 Ether</div>
+                    <button id="buyButton1" onclick="connectMetamask('Harry Potter and the Deathly Hallows - Part 2', 0.000012)" class="buy-button" data-movie-title="12">Buy Now</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Animation -->
+    <p class="category" id="animation">Animation</p>
+    <div class="movie-container">
+        <!-- Movie 13 -->
+        <div class="movie-card">
+            <div class="card">
+                <div class="img-content">
+                    <img src="img/5.jpg" alt="Movie 13">
+                </div>
+                <div class="content">
+                    <p class="movie-title">The Tiger’s Apprentice</p>
+                    <p class="movie-description">
+                        Tom Lee has to be apprenticed to the talking tiger Mr. Hu and learn ancient magic.
+                    </p>
+                    <div class="movie-price" data-price-ether="0.000013">0.000013 Ether</div>
+                    <button onclick="connectMetamask('The Tiger’s Apprentice', 0.000013)" class="buy-button" data-movie-title="13">Buy Now</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Movie 14 -->
+        <div class="movie-card">
+            <div class="card">
+                <div class="img-content">
+                    <img src="img/6.jpg" alt="Movie 14">
+                </div>
+                <div class="content">
+                    <p class="movie-title">One Piece</p>
+                    <p class="movie-description">
+                        Monkey D. Luffy sets off on an adventure with his pirate crew in hopes of finding the greatest treasure ever, known as the "One Piece."
+                    </p>
+                    <div class="movie-price" data-price-ether="0.000014">0.000014 Ether</div>
+                <button onclick="connectMetamask('One Piece', 0.000014)" class="buy-button" data-movie-title="14">Buy Now</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Movie 15 -->
+        <div class="movie-card">
+            <div class="card">
+                <div class="img-content">
+                    <img src="img/8.jpg" alt="Movie 15">
+                </div>
+                <div class="content">
+                    <p class="movie-title">Haibara_ JAMNIME</p>
+                    <p class="movie-description">
+                        The movie will focus on Ai Haibara's past and will reconstruct the Mystery Train arc from the television anime.
+                    </p>
+                    <div class="movie-price" data-price-ether="0.000015">0.000015 Ether</div>
+                    <button id="buyButton1" onclick="connectMetamask('Haibara_JAMNIME', 0.000015)" class="buy-button" data-movie-title="15">Buy Now</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Movie 16 -->
+        <div class="movie-card">
+            <div class="card">
+                <div class="img-content">
+                    <img src="img/12.jpeg" alt="Movie 16">
+                </div>
+                <div class="content">
+                    <p class="movie-title">Elemental</p>
+                    <p class="movie-description">
+                        Follows Ember and Wade, in a city where fire-, water-, earth- and air-residents live together.
+                    </p>
+                    <div class="movie-price" data-price-ether="0.000016">0.000016 Ether</div>
+                    <button id="buyButton1" onclick="connectMetamask('Elemental', 0.000016)" class="buy-button" data-movie-title="16">Buy Now</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Barbie -->
+    <p class="category" id="barbie">Barbie</p>
+    <div class="movie-container">
+        <!-- Movie 17 -->
+        <div class="movie-card">
+            <div class="card">
+                <div class="img-content">
+                    <img src="img/7.jpg" alt="Movie 17">
+                </div>
+                <div class="content">
+                    <p class="movie-title">barbie mariposa</p>
+                    <p class="movie-description">
+                        Malina wakes up disoriented in the trunk of a speeding car and discovers to her horror that she is missing more than her memory.
+                    </p>
+                    <div class="movie-price" data-price-ether="0.000017">0.000017 Ether</div>
+                    <button onclick="connectMetamask('barbie mariposa', 0.000017)" class="buy-button" data-movie-title="17">Buy Now</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Movie 18 -->
+        <div class="movie-card">
+            <div class="card">
+                <div class="img-content">
+                    <img src="img/13.jpg" alt="Movie 18">
+                </div>
+                <div class="content">
+                    <p class="movie-title">Princess Charm School</p>
+                    <p class="movie-description">
+                        Barbie stars as Blair, a kind-hearted girl who is chosen to attend Princess Charm School. In this magical place.
+                    </p>
+                    <div class="movie-price" data-price-ether="0.000018">0.000016 Ether</div>
+                <button onclick="connectMetamask('Princess Charm School', 0.000018)" class="buy-button" data-movie-title="18">Buy Now</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Movie 19 -->
+        <div class="movie-card">
+            <div class="card">
+                <div class="img-content">
+                    <img src="img/14.jpg" alt="Movie 19">
+                </div>
+                <div class="content">
+                    <p class="movie-title">Barbie as Rapunzel</p>
+                    <p class="movie-description">
+                        Barbie is an artist who paints her way out of a castle to save her prince.
+                    </p>
+                    <div class="movie-price" data-price-ether="0.000019">0.000019 Ether</div>
+                    <button onclick="connectMetamask('Barbie as Rapunzel', 0.000019)" class="buy-button" data-movie-title="19">Buy Now</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Movie 20 -->
+        <div class="movie-card">
+            <div class="card">
+                <div class="img-content">
+                    <img src="img/15.jpg" alt="Movie 20">
+                </div>
+                <div class="content">
+                    <p class="movie-title">Barbie as the Island Princess</p>
+                    <p class="movie-description">
+                        Marooned on an idyllic islet, the beautiful young woman,Could Ro be Rosella, the missing Island Princess?
+                    </p>
+                    <div class="movie-price" data-price-ether="0.000020">0.000020 Ether</div>
+                    <button onclick="connectMetamask('Barbie as the Island Princess', 0.000020)" class="buy-button" data-movie-title="20">Buy Now</button>
+                </div>
             </div>
         </div>
         <div class="ownership-details">
@@ -144,16 +397,12 @@
                 </tbody>
             </table>
         </div>
-        
-
-             
-
     </div>
 
     <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js">
-    </script>
+</script>
    
-   <script>
+<script>
     let account;
     let ownershipData = [];
 
@@ -246,5 +495,29 @@
     // เรียกใช้ connectContract เพื่อเชื่อมต่อกับ Smart Contract เมื่อโหลดหน้าเว็บ
     connectContract();
 </script>
+
+<script>
+    function scrollToThriller() {
+        var element = document.getElementById("thriller");
+        element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
+    }
+    function scrollToAction() {
+        var element = document.getElementById("action");
+        element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
+    }
+    function scrollToFantasy() {
+        var element = document.getElementById("fantasy");
+        element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
+    }
+    function scrollToAnimation() {
+        var element = document.getElementById("animation");
+        element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
+    }
+    function scrollToBarbie() {
+        var element = document.getElementById("barbie");
+        element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
+    }
+</script>
+
 </body>
 </html>
